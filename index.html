@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Babysitter Service by Annulda — caring, attentive babysitting in Kuala Lumpur. Newborns welcome.">
+  <title>Babysitter Service by Annulda</title>
+  <style>
+    :root {
+      --cream: #fffaf6;
+      --blush: #f4e5dc;
+      --pink: #e8c9bd;
+      --brown: #765747;
+      --dark: #49372e;
+      --muted: #806f65;
+      --white: #ffffff;
+      --line: #eadbd2;
+      --sage: #dce5d7;
+      --shadow: 0 12px 35px rgba(95, 67, 51, .09);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--dark);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1100px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    .topbar {
+      background: var(--dark);
+      color: #fff8f2;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: .88rem;
+      letter-spacing: .03em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--brown);
+      text-decoration: none;
+    }
+
+    .brand span {
+      display: block;
+      font-weight: 500;
+      font-size: .76rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      font-size: .94rem;
+      font-weight: 600;
+    }
+
+    .navlinks a:hover {
+      color: #a26f58;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 12px;
+      padding: 9px 12px;
+      color: var(--dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--brown);
+      color: white;
+      padding: 13px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .96rem;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      background: #5f4436;
+      transform: translateY(-1px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--brown);
+      border: 1px solid var(--line);
+    }
+
+    .btn-light:hover {
+      background: #fff3ec;
+      color: var(--brown);
+    }
+
+    .hero {
+      padding: 35px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: #a1745d;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 4.45rem);
+      line-height: 1.07;
+      margin: 14px 0 18px;
+      letter-spacing: -.035em;
+      font-weight: 600;
+    }
+
+    h1 em {
+      color: #a1745d;
+      font-weight: 500;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 560px;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .mini-points span::before {
+      content: "✓";
+      color: #79906f;
+      font-weight: 900;
+      margin-right: 7px;
+    }
+
+    .hero-art {
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 42% 42% 24px 24px;
+      background: linear-gradient(145deg, #f3dfd3, #e7c7b8 58%, #d8e2d1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+
+    .sun {
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: #fff4df;
+      top: 35px;
+      right: 30px;
+      opacity: .85;
+    }
+
+    .plant {
+      position: absolute;
+      bottom: -15px;
+      left: 22px;
+      font-size: 7rem;
+      transform: rotate(-12deg);
+      opacity: .8;
+    }
+
+    .teddy-card {
+      position: relative;
+      z-index: 1;
+      width: 72%;
+      background: rgba(255, 250, 246, .88);
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 28px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(95, 67, 51, .08);
+    }
+
+    .teddy {
+      font-size: 6rem;
+      line-height: 1.2;
+    }
+
+    .teddy-card strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 1.55rem;
+      color: var(--brown);
+      margin-top: 8px;
+    }
+
+    .teddy-card small {
+      color: var(--muted);
+    }
+
+    .floating-note {
+      position: absolute;
+      z-index: 2;
+      right: 14px;
+      bottom: 30px;
+      background: white;
+      border-radius: 16px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+      font-size: .9rem;
+    }
+
+    section {
+      padding: 65px 0;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .soft-section {
+      background: #f7eee8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(95, 67, 51, .035);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #f7e9e0;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: var(--brown);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-art {
+      background: var(--sage);
+      min-height: 330px;
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .about-art .emoji {
+      font-size: 5.5rem;
+    }
+
+    .about-art strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 1.7rem;
+      color: #52644e;
+    }
+
+    .about-copy h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.15;
+      margin: 10px 0 15px;
+      font-weight: 600;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .checklist li {
+      margin: 10px 0;
+    }
+
+    .checklist li::before {
+      content: "♡";
+      color: #a1745d;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    .rates {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .rate-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .rate-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .rate-card h3 {
+      margin: 0;
+      color: var(--brown);
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--brown);
+      white-space: nowrap;
+    }
+
+    .rate-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .note {
+      background: #fff4df;
+      border-radius: 14px;
+      padding: 15px 18px;
+      color: #6e5845;
+      margin-top: 20px;
+      font-size: .92rem;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .booking-copy {
+      background: var(--brown);
+      color: #fff8f2;
+      border-radius: 26px;
+      padding: 30px;
+    }
+
+    .booking-copy h2 {
+      font-family: Georgia, serif;
+      font-size: 2.25rem;
+      line-height: 1.15;
+      margin: 0 0 15px;
+    }
+
+    .booking-copy p {
+      color: #f0ded2;
+    }
+
+    .booking-copy .detail {
+      padding: 13px 0;
+      border-top: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    form {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #e2d2c8;
+      background: #fffdfb;
+      color: var(--dark);
+      border-radius: 12px;
+      padding: 12px 13px;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #a1745d;
+      box-shadow: 0 0 0 3px #f4e5dc;
+    }
+
+    textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .form-help {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 17px 20px;
+      margin: 11px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 750;
+      color: var(--brown);
+    }
+
+    details p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    footer {
+      background: #49372e;
+      color: #fff8f2;
+      padding: 35px 0;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: #e5d2c6;
+      margin: 4px 0;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      color: #fff8f2;
+      text-decoration: none;
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      box-shadow: var(--shadow);
+    }
+
+    .tiny {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 800px) {
+
+      .hero-grid,
+      .about-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 340px;
+        max-width: 540px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 100px;
+        left: 18px;
+        right: 18px;
+        padding: 18px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        z-index: 20;
+      }
+
+      .navlinks.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 28px, 1100px);
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .cards,
+      .rates,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 310px;
+      }
+
+      .teddy-card {
+        width: 78%;
+        padding: 23px 15px;
+      }
+
+      .teddy {
+        font-size: 4.5rem;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      form,
+      .booking-copy {
+        padding: 22px;
+      }
+
+      .wa-float {
+        bottom: 12px;
+        right: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- QUICK EDIT: Change the WhatsApp number in the CONFIG section near the bottom of this file. -->
+  <div class="topbar">Kuala Lumpur · Newborns and little ones are welcome ♡</div>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#home">Annulda<span>Babysitter Service</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰ Menu</button>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About Me</a>
+        <a href="#services">Services</a>
+        <a href="#rates">Rates</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#booking">Book a Session</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">A little care goes a long way</div>
+          <h1>Little ones,<br><em>loved and cared for.</em></h1>
+          <p>Warm, attentive babysitting for your little ones, with special care for babies and newborns. Your child's
+            comfort, safety and happiness matter.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#booking">♡ Request a Booking</a>
+            <a class="btn btn-light" href="#services">Explore Services</a>
+          </div>
+          <div class="mini-points">
+            <span>Newborns welcome</span>
+            <span>Early childhood education background</span>
+            <span>Kuala Lumpur</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Pastel nursery illustration">
+          <div class="sun"></div>
+          <div class="plant">🌿</div>
+          <div class="teddy-card">
+            <div class="teddy">🧸</div>
+            <strong>Gentle care, happy hearts</strong>
+            <small>Babysitter Service by Annulda</small>
+          </div>
+          <div class="floating-note">♡ Newborns welcome</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">How I can help</div>
+          <h2>Care that fits your family</h2>
+          <p>Choose the type of care you need, then send a booking request so we can discuss your child's routine.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">🍼</div>
+            <h3>Toddlers & Newborn Care</h3>
+            <p>Attentive care for little ones, following the routine and instructions shared by parents.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🧸</div>
+            <h3>Daytime Babysitting</h3>
+            <p>Support with age-appropriate play, meals as instructed, rest time and everyday care.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🌙</div>
+            <h3>Overnight Care</h3>
+            <p>Evening and overnight babysitting, with your child's bedtime routine discussed in advance.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🏡</div>
+            <h3>Travel & Extended Care</h3>
+            <p>Travel or longer-hour care may be arranged in advance, subject to availability and agreed terms.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Play & Learning</h3>
+            <p>Simple, age-appropriate activities to encourage exploration, creativity and development.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">💌</div>
+            <h3>Parent Communication</h3>
+            <p>Share your child's schedule, preferences and important care instructions before the session.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="about-art">
+          <div>
+            <div class="emoji">🌼</div>
+            <strong>Care with patience<br>and a little extra love</strong>
+            <p class="tiny">Babysitter Service by Ainul Huda</p>
+          </div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow">A little introduction</div>
+          <h2>Hello, parents!<br>I'm Ainul Huda.</h2>
+          <p>I have a background in Early Childhood Education and experience caring for babies, newborns and young
+            children. I aim to provide a calm, caring environment that respects each child's needs and family routine.
+          </p>
+          <p>Every child is different, so I welcome parents to share their child's schedule, likes, dislikes and any
+            important instructions before a booking.</p>
+          <ul class="checklist">
+            <li>Early Childhood Education background</li>
+            <li>Experience in taking care of newborns and young children for more than 7 years</li>
+            <li>Care planned around your child's routine</li>
+            <li>Have experience working at confinement centres</li>
+          </ul>
+          <a class="btn" href="#booking">Let's talk about your needs</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="rates">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Clear and simple pricing</div>
+          <h2>Babysitting rates</h2>
+          <p>Rates below are starting details. Please confirm the schedule, location and final price before the booking
+            is accepted.</p>
+        </div>
+        <div class="rates">
+          <article class="rate-card">
+            <div class="rate-top">
+              <h3>Regular Babysitting</h3>
+              <div class="price">RM20<span class="tiny">/hour</span></div>
+            </div>
+            <p>For hourly babysitting sessions.</p>
+          </article>
+          <article class="rate-card">
+            <div class="rate-top">
+              <h3>Overnight Care</h3>
+              <div class="price">+RM10<span class="tiny">/hour</span></div>
+            </div>
+            <p>Additional charge for overnight hours, usually between 12:00 AM to 6:00 AM.</p>
+          </article>
+          <article class="rate-card">
+            <div class="rate-top">
+              <h3>Travel / 24-Hour Care</h3>
+              <div class="price">RM300</div>
+            </div>
+            <p>Travel or 24-hour care rate; details and duration should be agreed before confirmation.</p>
+          </article>
+          <article class="rate-card">
+            <div class="rate-top">
+              <h3>Additional Child</h3>
+              <div class="price">+RM15</div>
+            </div>
+            <p>Additional charge per extra child. Please mention the number of children in your request.</p>
+          </article>
+        </div>
+        <div class="note"><strong>Please note:</strong> Transport, accommodation, international travel, public holidays
+          and other special arrangements may require separate discussion. A booking is not confirmed until the details
+          are agreed directly.</div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="wrap booking-grid">
+        <div class="booking-copy">
+          <div class="eyebrow" style="color:#f0cdb8">Let's make a plan</div>
+          <h2>Need a caring pair of hands?</h2>
+          <p>Send a request with a few details. The form will prepare a WhatsApp message for you to review and send.</p>
+          <div class="detail"><strong>📍 Service area</strong><br>Kuala Lumpur (other locations by arrangement)</div>
+          <div class="detail"><strong>👶 Ages</strong><br>Babies, newborns and young children</div>
+          <div class="detail"><strong>💬 Booking</strong><br>Requests are subject to availability and confirmation.
+          </div>
+        </div>
+        <form id="bookingForm">
+          <h2 style="font-family:Georgia,serif;margin-top:0;color:var(--brown)">Booking enquiry</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="parentName">Parent's name *</label>
+              <input id="parentName" name="parentName" autocomplete="name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="childAge">Child's age *</label>
+              <input id="childAge" name="childAge" required placeholder="e.g. 6 months / 1 year">
+            </div>
+            <div class="field">
+              <label for="careType">Type of care *</label>
+              <select id="careType" name="careType" required>
+                <option value="">Choose a service</option>
+                <option>Hourly babysitting</option>
+                <option>Newborn / baby care</option>
+                <option>Overnight care</option>
+                <option>Travel / 24-hour care</option>
+                <option>Other arrangement</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="children">Number of children *</label>
+              <select id="children" name="children" required>
+                <option value="">Select</option>
+                <option>1 child</option>
+                <option>2 children</option>
+                <option>3 children</option>
+                <option>4 or more children</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Preferred date *</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="hours">Preferred time / hours</label>
+              <input id="hours" name="hours" placeholder="e.g. 9 AM–1 PM">
+            </div>
+            <div class="field full">
+              <label for="location">Location / area *</label>
+              <input id="location" name="location" required placeholder="e.g. Kuala Lumpur, building / neighbourhood">
+            </div>
+            <div class="field full">
+              <label for="notes">Anything I should know?</label>
+              <textarea id="notes" name="notes"
+                placeholder="Share the child's routine or any important care instructions. Please avoid sensitive medical details in this form."></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn" type="submit" style="width:100%">Prepare WhatsApp Booking Message ↗</button>
+              <p class="form-help">Your details are not sent automatically by this website. WhatsApp will open with a
+                draft message for you to review and send.</p>
+              <p class="form-help" id="formStatus" role="status"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="soft-section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Good to know</div>
+          <h2>Frequently asked questions</h2>
+          <p>Some details are best discussed before confirming a booking.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Do you accept newborn bookings?</summary>
+            <p>Yes, newborns are welcome. Please share the baby's routine and care instructions in advance so we can
+              discuss the arrangement.</p>
+          </details>
+          <details>
+            <summary>How do I confirm a booking?</summary>
+            <p>Send an enquiry through the booking form or WhatsApp. The date, schedule, location, rate and any special
+              arrangements must be agreed before the booking is confirmed.</p>
+          </details>
+          <details>
+            <summary>Can you travel outside Kuala Lumpur or overseas?</summary>
+            <p>Travel may be discussed in advance and is subject to availability, agreed fees, travel arrangements and
+              any applicable entry or work requirements.</p>
+          </details>
+          <details>
+            <summary>What should parents prepare?</summary>
+            <p>Please share the child's schedule, emergency contact details, feeding and sleep routine, allergies or
+              relevant care instructions directly and securely before the session.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>
+        <strong>Babysitter Service by Annulda</strong>
+        <p>Little ones, loved and cared for. ♡</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a><a href="#services">Services</a><a href="#booking">Booking</a>
+      </div>
+      <p>© <span id="year"></span> Annulda. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a class="btn wa-float" id="quickWhatsApp" href="#booking" aria-label="Contact about babysitting">♡ WhatsApp</a>
+
+  <script>
+    // ===================== QUICK EDIT SETTINGS =====================
+    // Replace the Xs with your WhatsApp number, including Malaysia country code 60.
+    // Example format: 60123456789 (no +, spaces or hyphens).
+    const WHATSAPP_NUMBER = "60166673832";
+    // ===============================================================
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navlinks = document.getElementById("navlinks");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navlinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    navlinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navlinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    function whatsappUrl(message) {
+      if (WHATSAPP_NUMBER.includes("X")) return null;
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+
+    document.getElementById("quickWhatsApp").addEventListener("click", function (event) {
+      const url = whatsappUrl("Hello Ainul Huda! I would like to enquire about your babysitting service.");
+      if (!url) {
+        event.preventDefault();
+        document.getElementById("formStatus").textContent =
+          "Before using WhatsApp, edit WHATSAPP_NUMBER near the bottom of index.html and add your number.";
+        document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+      } else {
+        this.href = url;
+      }
+    });
+
+    document.getElementById("bookingForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const data = new FormData(this);
+      const message =
+        `Hello Ainul Huda! I would like to enquire about babysitting.
+
+Parent's name: ${data.get("parentName")}
+Child's age: ${data.get("childAge")}
+Type of care: ${data.get("careType")}
+Number of children: ${data.get("children")}
+Preferred date: ${data.get("date")}
+Preferred time / hours: ${data.get("hours") || "Not specified"}
+Location: ${data.get("location")}
+Additional notes: ${data.get("notes") || "None"}
+
+May I check your availability and the final rate? Thank you.`;
+
+      const url = whatsappUrl(message);
+      const status = document.getElementById("formStatus");
+      if (!url) {
+        status.textContent = "Almost ready! Edit WHATSAPP_NUMBER near the bottom of index.html and add your WhatsApp number, then try again.";
+        return;
+      }
+      window.open(url, "_blank", "noopener,noreferrer");
+      status.textContent = "WhatsApp has opened with your draft message. Review it and press Send in WhatsApp.";
+    });
+  </script>
+</body>
+
+</html>
